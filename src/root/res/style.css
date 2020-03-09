@@ -1,0 +1,133 @@
+.leaflet-container {
+  cursor: crosshair !important;
+}
+
+div#map {
+	position: fixed;
+	padding: 0;
+	margin: 0;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.metro-label {
+	font-size:10px;
+	color:#FFFFFF;
+	font-family: 'PT Sans', sans-serif;
+	font-weight: bold;
+	text-align: center;
+	margin: 0;
+	padding: 1px 4px;
+}
+
+.rail-label {
+	font-size:10px;
+	color:#FFFFFF;
+	background: #444444;
+	font-family: 'PT Sans', sans-serif;
+	font-weight: bold;
+	text-align: center;
+	margin: 0;
+	padding: 1px 4px;
+}
+
+.metro-label-m1 {
+	background: #E30613;
+}
+
+.metro-label-m2 {
+	background: #008D36;
+}
+
+.metro-label-m3 {
+	background: #1D71B8;
+}
+
+.metro-label-m4 {
+	background: #DB9D2D;
+}
+
+.metro-label-m1-m3 {
+	background-image:linear-gradient(to right,#E30613 0%,#E30613 50%,#1D71B8 50%,#1D71B8 100%);
+	background-repeat: no-repeat;
+}
+
+.metro-label-m1-m3-m4-rail {
+	background-image:linear-gradient(to right,#E30613 0%,#E30613 25%,#1D71B8 25%,#1D71B8 50%,#DB9D2D 50%,#DB9D2D 75%,#444444 75%,#444444 100%);
+	background-repeat: no-repeat;
+}
+
+.metro-label-m1-m2 {
+	background-image:linear-gradient(to right,#E30613 0%,#E30613 50%,#008D36 50%,#008D36 100%);
+	background-repeat: no-repeat;
+}
+
+.metro-label-m2-m3 {
+	background-image:linear-gradient(to right,#008D36 0%,#008D36 50%,#1D71B8 50%,#1D71B8 100%);
+	background-repeat: no-repeat;
+}
+
+.metro-label-m2-m3-rail {
+	background-image:linear-gradient(to right,#008D36 0%,#008D36 33%,#1D71B8 33%,#1D71B8 66%,#444444 66%,#444444 100%);
+	background-repeat: no-repeat;
+}
+
+.metro-label-m1-m2-m4 {
+	background-image:linear-gradient(to right,#E30613 0%,#E30613 33%,#008D36 33%,#008D36 66%,#DB9D2D 66%,#DB9D2D 100%);
+	background-repeat: no-repeat;
+}
+
+.metro-label-m2-rail {
+	background-image:linear-gradient(to right,#008D36 0%,#008D36 50%,#444444 50%,#444444 100%);
+	background-repeat: no-repeat;
+}
+
+.metro-label-m3-rail {
+	background-image:linear-gradient(to right,#1D71B8 0%,#1D71B8 50%,#444444 50%,#444444 100%);
+	background-repeat: no-repeat;
+}
+
+.metro-label-m4-rail {
+	background-image:linear-gradient(to right,#DB9D2D 0%,#DB9D2D 50%,#444444 50%,#444444 100%);
+	background-repeat: no-repeat;
+}
+
+.location {
+	font-family: 'PT Sans', sans-serif;
+	font-weight: normal;
+	margin: 0;
+	padding: 1px 4px;
+}
+
+.location .leaflet-popup-content-wrapper .leaflet-popup-content {
+	height: 250px;
+}
+
+.location h2 {
+	text-align: center;
+}
+
+.location img {
+	float:left;
+	padding-right: 6px;
+}
+
+.location-section {
+	font-weight: bold;
+}
+
+.backToWikiControl {
+	border: 2px solid rgba(0,0,0,0.2);
+	border-radius: 4px;
+	background-color: #fff;
+	padding: 4px 4px;
+}
+
+.ptLegendControl {
+	border: 2px solid rgba(0,0,0,0.2);
+	border-radius: 4px;
+	background-color: #fff;
+	padding: 4px 4px 0 4px
+}
