@@ -9,7 +9,7 @@ After that just run `build.sh`. Expect to wait a couple of minutes or even more,
 Run the same script with the `dev` parameter if you want to change map logic or work on locations, that way tiles will be placed in the `src` directory for you to be able to edit the js sources, and open `index.html` locally in your browser. **Never edit anything in `dist` directory, it's for distribution purposes only!**
 
 ## Internals
-Main source file is `src/stalburg.svg`. It's a good idea to use [Inkscape](https://inkscape.org/) to open it, because unfortunately compatibility between various SVG editors is pretty low. However, in order to generate tiles for Leaflet (see above), we need to export everything to PNG first. Exported layers are also a part of the repo, they are located in `layers` dir.
+Main source file is `src/stalburg/stalburg.svg`. It's a good idea to use [Inkscape](https://inkscape.org/) to open it, because unfortunately compatibility between various SVG editors is pretty low. However, in order to generate tiles for Leaflet (see above), we need to export everything to PNG first. Exported layers are also a part of the repo, they are located in `layers` dir.
 
 The map consists of 4 main layers:
  - Base layer (roads, highways, streets and terrain);
@@ -23,7 +23,7 @@ In order to export needed layer from Inkscape we can enable or disable object gr
 ![](https://d7.wtf/LithochromyScillaMetropolitical.png)
 
 In other words, the map editing workflow looks like that:  
-**SVG source** (`src/stalburg.svg`) >>> **4 PNG layers** (`layers/`) >>> **4 sets of tiles** (generated with `build.sh`).
+**SVG source** (`src/stalburg/stalburg.svg`) >>> **4 PNG layers** (`layers/`) >>> **4 sets of tiles** (generated with `build.sh`).
 
 Other important files:
  - `src/root/res/map-v2.js` - Main code file with all basic routines;
