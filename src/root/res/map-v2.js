@@ -75,7 +75,7 @@ docReady(function() { // for great js COMPATIBILITY (see docready.js, this shit 
 		layers: [stalburg_base]
 	}).setView([-73.13451013251789,-29.410400390625004],5);
 
-	L.control.attribution({prefix: 'made by <a href="http://deseven.info/">deseven</a>, based on original <a href="https://loisteinteractive.com/">Loiste</a> maps, powered by <a href="https://leafletjs.com/">Leaflet</a>'}).addTo(map);
+	L.control.attribution({prefix: 'made by <a href="https://d7.wtf/">deseven</a>, based on original <a href="https://loisteinteractive.com/">Loiste</a> maps, powered by <a href="https://leafletjs.com/">Leaflet</a>'}).addTo(map);
 
 	// all this stuff is now in different files called objects.js and mark.js
 	initObjects();
@@ -120,17 +120,18 @@ docReady(function() { // for great js COMPATIBILITY (see docready.js, this shit 
 		promptCoordinates = true;
 	}
 
-	if (window.location.hash.substring(1).toLowerCase()) {
-		var loc;
+	if (window.location.hash.substring(1)) {
+		var loc,safeHash;
 		if (window.location.hash.substring(1).toLowerCase().startsWith('loc:')) {
 			loc = window.location.hash.substring(1).toLowerCase().split(':');
 			loc = loc[1].split(',');
 			map.setView([loc[0],loc[1]],loc[2]);
 		} else {
-			if (eval('typeof _' + window.location.hash.substring(1).toLowerCase()) !== 'undefined') { // yeah, i actually use eval() on user-editable data because security is a priority!
-				loc = eval('_' + window.location.hash.substring(1).toLowerCase());
-			} else if (eval('typeof ' + window.location.hash.substring(1).toLowerCase()) !== 'undefined') {
-				loc = eval(window.location.hash.substring(1).toLowerCase());
+			safeHash = window.location.hash.substring(1).toLowerCase().replace(/[^a-z0-9_]/g,"");
+			if (eval('typeof _' + safeHash) !== 'undefined') {
+				loc = eval('_' + safeHash);
+			} else if (eval('typeof ' + safeHash) !== 'undefined') {
+				loc = eval(safeHash);
 			}
 			if (typeof loc === 'object') {
 				if (typeof loc.togglePopup === 'function') {
@@ -178,7 +179,7 @@ docReady(function() { // for great js COMPATIBILITY (see docready.js, this shit 
 	legend.onAdd = function (map) {
 
 		var div = L.DomUtil.create('div','ptLegendControl');
-		div.innerHTML = '<img src="res/images/pt-legend.png?2" width="485" height="165">'; // sorry i'm bad with html/css so it was easier to make a legend as an image
+		div.innerHTML = '<img src="res/images/pt-legend.png?{MAPDEV}" width="485" height="165">'; // sorry i'm bad with html/css so it was easier to make a legend as an image
 		return div;
 	};
 
