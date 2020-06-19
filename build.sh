@@ -70,7 +70,7 @@ else
 	cd ..
 
 	cp -r src/root/res/ dist/
-	cp src/root/index.html dist/
+	cp src/root/index.html src/root/favicon.ico dist/
 
 	# replacing internal values with short commit id
 	sed -i "s/{MAPDEV}/$commit/g" dist/index.html
