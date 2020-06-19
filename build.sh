@@ -43,6 +43,8 @@ then
 	die "layer(s) size is incorrect, correct size is ${stdW}x${stdH}"
 fi
 
+echo "generating tiles (this will take some time)..."
+
 # running tasks in parallel (based on a number of your cpu cores)
 echo 'gdal2tiles.py -p raster -w none base.png base
       gdal2tiles.py -p raster -w none dev.png dev
@@ -67,7 +69,8 @@ else
 
 	cd ..
 
-	cp -r src/root/* dist
+	cp -r src/root/res/ dist/
+	cp src/root/index.html dist/
 
 	# replacing internal values with short commit id
 	sed -i "s/{MAPDEV}/$commit/g" dist/index.html
