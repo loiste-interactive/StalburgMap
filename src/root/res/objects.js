@@ -617,7 +617,12 @@ function initObjects() {
 	.bindPopup('<h2>Two Gorges Dam</h2><img width="200" height="200" src="res/locations/two_gorges.jpg">Another dam that was built by <a href="https://stalburg.arctar.us/Hammer_Valley_Hydro">Hammer Valley Hydro</a>. It has been abandoned for an unspecified time, and then fallen in disrepair due to extensive neglect.',{offset: [0,-12],maxWidth:400,minWidth:400,className:'location',closeButton:false})
 	.addTo(locations).on('click',function(){setHash("tg_dam")});
 
-	mark_house = new L.marker([-70.87349131926351,-66.53320312500001], { opacity: 0.9 })
+	mark_house = new L.polygon([
+		[-70.51024068514326,-67.50000000000001],
+		[-70.83746143540388,-67.54394531250001],
+		[-70.8194220058879,-67.92846679687501],
+		[-70.49924132120779,-67.78564453125001]
+	])
 	.bindPopup('<h2>Mark\'s house</h2><img width="200" height="200" src="res/locations/mark.jpg">The home of <a href="https://stalburg.arctar.us/Markku_Siltanen">Markku Siltanen</a>, main INFRA protagonist.<br><span class="location-section">Maps:</span> <a href="https://stalburg.arctar.us/Ending_2">ending_2</a>',{offset: [0,-12],maxWidth:400,minWidth:400,className:'location',closeButton:false})
 	.addTo(locations).on('click',function(){setHash("mark_house")});
 
