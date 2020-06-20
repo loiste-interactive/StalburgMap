@@ -75,7 +75,7 @@ docReady(function() { // for great js COMPATIBILITY (see docready.js, this shit 
 		layers: [stalburg_base]
 	}).setView([-73.13451013251789,-29.410400390625004],5);
 
-	L.control.attribution({prefix: 'made by <a href="https://d7.wtf/">deseven</a>, based on original <a href="https://loisteinteractive.com/">Loiste</a> maps, powered by <a href="https://leafletjs.com/">Leaflet</a>'}).addTo(map);
+	L.control.attribution({prefix: '<a href="https://github.com/loiste-interactive/StalburgMap">Contribute on GitHub</a> | Made by <a href="https://d7.wtf/">deseven</a> | Based on original <a href="https://loisteinteractive.com/">Loiste</a> maps | Powered by <a href="https://leafletjs.com/">Leaflet</a>'}).addTo(map);
 
 	// all this stuff is now in different files called objects.js and mark.js
 	initObjects();
