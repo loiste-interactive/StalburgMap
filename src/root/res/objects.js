@@ -465,7 +465,7 @@ function initObjects() {
 	.bindPopup('<h2>Castle Rock Island</h2><img width="200" height="200" src="res/locations/castle.jpg">An island with a historical site for the remains of an old castle.<br><span class="location-section">Maps:</span> <a href="https://stalburg.arctar.us/Isle1">isle1</a>, <a href="https://stalburg.arctar.us/Isle2">isle2</a>, <a href="https://stalburg.arctar.us/Isle3">isle3</a>',{offset: [0,-12],maxWidth:400,minWidth:400,className:'location',closeButton:false})
 	.addTo(locations).on('click',function(){setHash("castlerock_island")});
 
-	walter_tower = new L.marker([-73.46285669225547,-35.03540039062501], { opacity: 0.9 })
+	walter_tower = new L.marker([-73.29946735700813,-33.50830078125001], { opacity: 0.9 })
 	.bindPopup('<h2>Walter Tower</h2><img width="200" height="200" src="res/locations/walter.jpg">Headquoters of <a href="https://stalburg.arctar.us/Walter_Corporation">Walter Corporation</a>, a company created by <a href="https://stalburg.arctar.us/Jeff_Walter">Jeff Walter</a>.<br><span class="location-section">Maps:</span> <a href="https://stalburg.arctar.us/Skyscraper">skyscraper</a>',{offset: [0,-12],maxWidth:400,minWidth:400,className:'location',closeButton:false})
 	.addTo(locations).on('click',function(){setHash("walter_tower")});
 
