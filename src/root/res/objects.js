@@ -462,20 +462,20 @@ function initObjects() {
 	// Locations
 	//new L.marker([-76.42429214465984,-51.98730468750001], { opacity: 0.9 })
 	castlerock_island = new L.circle([-76.42429214465984,-51.98730468750001],{radius: 30000})
-	.bindPopup('<h2>Castle Rock Island</h2><img width="200" height="200" src="res/locations/castle.jpg">An island with a historical site for the remains of an old castle.<br><span class="location-section">Maps:</span> <a href="https://stalburg.arctar.us/Isle1">isle1</a>, <a href="https://stalburg.arctar.us/Isle2">isle2</a>, <a href="https://stalburg.arctar.us/Isle3">isle3</a>',{offset: [0,-12],maxWidth:400,minWidth:400,className:'location',closeButton:false})
+	.bindPopup('<h2>Castle Rock Island</h2><img width="200" height="200" src="res/locations/castle.jpg">An island with a historical site for the remains of an old castle.<br><span class="location-section">Maps:</span> <a href="https://stalburg.net/Isle1">isle1</a>, <a href="https://stalburg.net/Isle2">isle2</a>, <a href="https://stalburg.net/Isle3">isle3</a>',{offset: [0,-12],maxWidth:400,minWidth:400,className:'location',closeButton:false})
 	.addTo(locations).on('click',function(){setHash("castlerock_island")});
 
 	walter_tower = new L.marker([-73.29946735700813,-33.50830078125001], { opacity: 0.9 })
-	.bindPopup('<h2>Walter Tower</h2><img width="200" height="200" src="res/locations/walter.jpg">Headquoters of <a href="https://stalburg.arctar.us/Walter_Corporation">Walter Corporation</a>, a company created by <a href="https://stalburg.arctar.us/Jeff_Walter">Jeff Walter</a>.<br><span class="location-section">Maps:</span> <a href="https://stalburg.arctar.us/Skyscraper">skyscraper</a>',{offset: [0,-12],maxWidth:400,minWidth:400,className:'location',closeButton:false})
+	.bindPopup('<h2>Walter Tower</h2><img width="200" height="200" src="res/locations/walter.jpg">Headquoters of <a href="https://stalburg.net/Walter_Corporation">Walter Corporation</a>, a company created by <a href="https://stalburg.net/Jeff_Walter">Jeff Walter</a>.<br><span class="location-section">Maps:</span> <a href="https://stalburg.net/Skyscraper">skyscraper</a>',{offset: [0,-12],maxWidth:400,minWidth:400,className:'location',closeButton:false})
 	.addTo(locations).on('click',function(){setHash("walter_tower")});
 
 	//new L.marker([-58.50517468678928,-7.932128906250001], { opacity: 0.9 })
 	stalburg_steel = new L.circle([-58.67122581929799,-7.580566406250001],{radius: 160000})
-	.bindPopup('<h2>Stalburg Steel Factory</h2><img width="200" height="200" src="res/locations/steel.jpg"><a href="https://stalburg.arctar.us/Stalburg_Steel">Stalburg Steel</a> was a major employer for Stalburg, and a great economic power. Today the factory itself has been abandoned for decades, and has fallen into a state of terrific disrepair.<br><span class="location-section">Maps:</span> <a href="https://stalburg.arctar.us/Furnace">furnace</a>, <a href="https://stalburg.arctar.us/Tower">tower</a>',{offset: [0,-12],maxWidth:400,minWidth:400,className:'location',closeButton:false})
+	.bindPopup('<h2>Stalburg Steel Factory</h2><img width="200" height="200" src="res/locations/steel.jpg"><a href="https://stalburg.net/Stalburg_Steel">Stalburg Steel</a> was a major employer for Stalburg, and a great economic power. Today the factory itself has been abandoned for decades, and has fallen into a state of terrific disrepair.<br><span class="location-section">Maps:</span> <a href="https://stalburg.net/Furnace">furnace</a>, <a href="https://stalburg.net/Tower">tower</a>',{offset: [0,-12],maxWidth:400,minWidth:400,className:'location',closeButton:false})
 	.addTo(locations).on('click',function(){setHash("stalburg_steel")});
 
 	//new L.marker([4.806364708499998,-14.348144531250002], { opacity: 0.9 })
-	//.bindPopup('<h2>Hammer Valley</h2><img width="200" height="200" src="res/locations/hv.jpg">The park was established in 1965 following the construction of the dam, and provided a number of hiking routes and bird watching spots. Hammer Valley Sawmill is also located here.<br><span class="location-section">Maps:</span> <a href="https://stalburg.arctar.us/Reserve1">reserve1</a>, <a href="https://stalburg.arctar.us/Reserve2">reserve2</a>, <a href="https://stalburg.arctar.us/Reserve3">reserve3</a>',{offset: [0,-12],maxWidth:400,minWidth:400,className:'location',closeButton:false})
+	//.bindPopup('<h2>Hammer Valley</h2><img width="200" height="200" src="res/locations/hv.jpg">The park was established in 1965 following the construction of the dam, and provided a number of hiking routes and bird watching spots. Hammer Valley Sawmill is also located here.<br><span class="location-section">Maps:</span> <a href="https://stalburg.net/Reserve1">reserve1</a>, <a href="https://stalburg.net/Reserve2">reserve2</a>, <a href="https://stalburg.net/Reserve3">reserve3</a>',{offset: [0,-12],maxWidth:400,minWidth:400,className:'location',closeButton:false})
 	//.addTo(locations);
 
 	hammer_valley = new L.polygon([
@@ -487,7 +487,7 @@ function initObjects() {
 	    [5.68158368342113,-14.919433593750002],
 	    [8.015715997869071,-14.468994140625]
 	])
-	.bindPopup('<h2>Hammer Valley</h2><img width="200" height="200" src="res/locations/hv.jpg">The park was established in 1965 following the construction of the dam, and provided a number of hiking routes and bird watching spots. Hammer Valley Sawmill is also located here.<br><span class="location-section">Maps:</span> <a href="https://stalburg.arctar.us/Reserve1">reserve1</a>, <a href="https://stalburg.arctar.us/Reserve2">reserve2</a>, <a href="https://stalburg.arctar.us/Reserve3">reserve3</a>',{offset: [0,-12],maxWidth:400,minWidth:400,className:'location',closeButton:false})
+	.bindPopup('<h2>Hammer Valley</h2><img width="200" height="200" src="res/locations/hv.jpg">The park was established in 1965 following the construction of the dam, and provided a number of hiking routes and bird watching spots. Hammer Valley Sawmill is also located here.<br><span class="location-section">Maps:</span> <a href="https://stalburg.net/Reserve1">reserve1</a>, <a href="https://stalburg.net/Reserve2">reserve2</a>, <a href="https://stalburg.net/Reserve3">reserve3</a>',{offset: [0,-12],maxWidth:400,minWidth:400,className:'location',closeButton:false})
 	.addTo(locations).on('click',function(){setHash("hammer_valley")});
 
 	//new L.marker([-56.426054476049735,-92.28515625000001], { opacity: 0.9 })
@@ -503,15 +503,15 @@ function initObjects() {
 		[-52.762892,-94.350586],
 		[-51.289406,-89.692383]
 	])
-	.bindPopup('<h2>Black Rock NPP</h2><img width="200" height="200" src="res/locations/npp.jpg">The Black Rock Nuclear Powerplant, built by Stalburg Industry Power, is the source of Stalburg\'s nuclear energy production.<br><span class="location-section">Maps:</span> <a href="https://stalburg.arctar.us/Field">field</a>, <a href="https://stalburg.arctar.us/Npp">npp</a>, <a href="https://stalburg.arctar.us/Reactor">reactor</a>, <a href="https://stalburg.arctar.us/Roof">roof</a>',{offset: [0,-12],maxWidth:400,minWidth:400,className:'location',closeButton:false})
+	.bindPopup('<h2>Black Rock NPP</h2><img width="200" height="200" src="res/locations/npp.jpg">The Black Rock Nuclear Powerplant, built by Stalburg Industry Power, is the source of Stalburg\'s nuclear energy production.<br><span class="location-section">Maps:</span> <a href="https://stalburg.net/Field">field</a>, <a href="https://stalburg.net/Npp">npp</a>, <a href="https://stalburg.net/Reactor">reactor</a>, <a href="https://stalburg.net/Roof">roof</a>',{offset: [0,-12],maxWidth:400,minWidth:400,className:'location',closeButton:false})
 	.addTo(locations).on('click',function(){setHash("npp")});
 
 	villa = new L.marker([-62.66405506888221,-79.13452148437501], { opacity: 0.9 })
-	.bindPopup('<h2>Mikhail Rosenthal\'s Villa</h2><img width="200" height="200" src="res/locations/villa.jpg">A villa on the outskirts of Stalburg owned by <a href="https://stalburg.arctar.us/Mikhail_Rosenthal">Mikhail Rosenthal</a>.<br><span class="location-section">Maps:</span> <a href="https://stalburg.arctar.us/Villa">villa</a>',{offset: [0,-12],maxWidth:400,minWidth:400,className:'location',closeButton:false})
+	.bindPopup('<h2>Mikhail Rosenthal\'s Villa</h2><img width="200" height="200" src="res/locations/villa.jpg">A villa on the outskirts of Stalburg owned by <a href="https://stalburg.net/Mikhail_Rosenthal">Mikhail Rosenthal</a>.<br><span class="location-section">Maps:</span> <a href="https://stalburg.net/Villa">villa</a>',{offset: [0,-12],maxWidth:400,minWidth:400,className:'location',closeButton:false})
 	.addTo(locations).on('click',function(){setHash("villa")});
 
 	//new L.marker([-20.550508894195637,-11.074218750000002], { opacity: 0.9 })
-	//.bindPopup('<h2>Bergmann Water Tunnels</h2><img width="200" height="200" src="res/locations/tunnel1.jpg">The Bergmann Water Tunnels are a series of subterranean tunnels designed to carry water from Lake Stalburg northern regions down to the city. The tunnel is fed by a diverted river in Hammer Valley, and terminates at the Stalburg Central Water Plant.<br><span class="location-section">Maps:</span> <a href="https://stalburg.arctar.us/Tunnel1">tunnel1</a>, <a href="https://stalburg.arctar.us/Tunnel2">tunnel2</a>, <a href="https://stalburg.arctar.us/Tunnel3">tunnel3</a>, <a href="https://stalburg.arctar.us/Tunnel4">tunnel4</a>, <a href="https://stalburg.arctar.us/Hallway">hallway</a>',{offset: [0,-12],maxWidth:400,minWidth:400,className:'location',closeButton:false})
+	//.bindPopup('<h2>Bergmann Water Tunnels</h2><img width="200" height="200" src="res/locations/tunnel1.jpg">The Bergmann Water Tunnels are a series of subterranean tunnels designed to carry water from Lake Stalburg northern regions down to the city. The tunnel is fed by a diverted river in Hammer Valley, and terminates at the Stalburg Central Water Plant.<br><span class="location-section">Maps:</span> <a href="https://stalburg.net/Tunnel1">tunnel1</a>, <a href="https://stalburg.net/Tunnel2">tunnel2</a>, <a href="https://stalburg.net/Tunnel3">tunnel3</a>, <a href="https://stalburg.net/Tunnel4">tunnel4</a>, <a href="https://stalburg.net/Hallway">hallway</a>',{offset: [0,-12],maxWidth:400,minWidth:400,className:'location',closeButton:false})
 	//.addTo(locations);
 
 	bergmann_tunnels = new L.polygon([
@@ -534,22 +534,22 @@ function initObjects() {
 	    [-22.350075806124853,-11.953125000000002],
 	    [-8.90678000752024,-13.425292968750002]
 	])
-	.bindPopup('<h2>Bergmann Water Tunnels</h2><img width="200" height="200" src="res/locations/tunnel1.jpg"><a href="https://stalburg.arctar.us/Bergmann_Water_Tunnels">The Bergmann Water Tunnels</a> are a series of subterranean tunnels designed to carry water from Lake Stalburg northern regions down to the city. The tunnel is fed by a diverted river in Hammer Valley, and terminates at the Stalburg Central Water Plant.<br><span class="location-section">Maps:</span> <a href="https://stalburg.arctar.us/Reserve3">reserve3</a>, <a href="https://stalburg.arctar.us/Tunnel1">tunnel1</a>, <a href="https://stalburg.arctar.us/Tunnel2">tunnel2</a>, <a href="https://stalburg.arctar.us/Tunnel3">tunnel3</a>, <a href="https://stalburg.arctar.us/Tunnel4">tunnel4</a>, <a href="https://stalburg.arctar.us/Hallway">hallway</a>',{offset: [0,-12],maxWidth:400,minWidth:400,className:'location',closeButton:false})
+	.bindPopup('<h2>Bergmann Water Tunnels</h2><img width="200" height="200" src="res/locations/tunnel1.jpg"><a href="https://stalburg.net/Bergmann_Water_Tunnels">The Bergmann Water Tunnels</a> are a series of subterranean tunnels designed to carry water from Lake Stalburg northern regions down to the city. The tunnel is fed by a diverted river in Hammer Valley, and terminates at the Stalburg Central Water Plant.<br><span class="location-section">Maps:</span> <a href="https://stalburg.net/Reserve3">reserve3</a>, <a href="https://stalburg.net/Tunnel1">tunnel1</a>, <a href="https://stalburg.net/Tunnel2">tunnel2</a>, <a href="https://stalburg.net/Tunnel3">tunnel3</a>, <a href="https://stalburg.net/Tunnel4">tunnel4</a>, <a href="https://stalburg.net/Hallway">hallway</a>',{offset: [0,-12],maxWidth:400,minWidth:400,className:'location',closeButton:false})
 	.addTo(locations).on('click',function(){setHash("bergmann_tunnels")});
 
 	//new L.marker([-63.035039315529765,-6.174316406250001], { opacity: 0.9 })
 	pitheath_metro = new L.circle([-63.035039315529765,-6.174316406250001],{radius: 30000})
-	.bindPopup('<h2>Pitheath Metro Station</h2><img width="200" height="200" src="res/locations/pitheath.jpg">The Pitheath Metro Station, a station that goes along the Ampstrand Line in Stalburg. The subway itself is relatively modern, but shows recent sign of neglect due to the metro worker\'s union strike.<br><span class="location-section">Maps:</span> <a href="https://stalburg.arctar.us/Metro">metro</a>, <a href="https://stalburg.arctar.us/Metroride">metroride</a>',{offset: [0,-12],maxWidth:400,minWidth:400,className:'location',closeButton:false})
+	.bindPopup('<h2>Pitheath Metro Station</h2><img width="200" height="200" src="res/locations/pitheath.jpg">The Pitheath Metro Station, a station that goes along the Ampstrand Line in Stalburg. The subway itself is relatively modern, but shows recent sign of neglect due to the metro worker\'s union strike.<br><span class="location-section">Maps:</span> <a href="https://stalburg.net/Metro">metro</a>, <a href="https://stalburg.net/Metroride">metroride</a>',{offset: [0,-12],maxWidth:400,minWidth:400,className:'location',closeButton:false})
 	.addTo(locations).on('click',function(){setHash("pitheath_metro")});
 
 	//new L.marker([-72.84850201835972,-28.981933593750004], { opacity: 0.9 })
 	central_metro = new L.circle([-73.13769725773439,-29.300537109375004],{radius: 60000})
-	.bindPopup('<h2>Central Metro Station</h2><img width="200" height="200" src="res/locations/central.jpg">Stalburg\'s Central Metro Station, a stop on the City Loop line in the transit system, and the site of protests by public transit workers for 13 years. Beneath the station is a disused 60\'s themed office and service tunnels.<br><span class="location-section">Maps:</span> <a href="https://stalburg.arctar.us/Central">central</a>',{offset: [0,-12],maxWidth:400,minWidth:400,className:'location',closeButton:false})
+	.bindPopup('<h2>Central Metro Station</h2><img width="200" height="200" src="res/locations/central.jpg">Stalburg\'s Central Metro Station, a stop on the City Loop line in the transit system, and the site of protests by public transit workers for 13 years. Beneath the station is a disused 60\'s themed office and service tunnels.<br><span class="location-section">Maps:</span> <a href="https://stalburg.net/Central">central</a>',{offset: [0,-12],maxWidth:400,minWidth:400,className:'location',closeButton:false})
 	.addTo(locations).on('click',function(){setHash("central_metro")});
 
 	//new L.marker([-73.35305494105975,-33.10180664062501], { opacity: 0.9 })
 	snw_bunker = new L.circle([-73.48160903284723,-33.12377929687501],{radius: 40000})
-	.bindPopup('<h2>SNW Bunker</h2><img width="200" height="200" src="res/locations/bunker.jpg">A secret underground bunker below Walter Tower. It was built sometime after World War II by a government organization called <a href="https://stalburg.arctar.us/S.N.W">S.N.W</a>, with the funding of <a href="https://stalburg.arctar.us/Jeff_Walter">Jeff Walter</a> and the support of high ranking officials for the purpose of constructing nuclear weapons.<br><span class="location-section">Maps:</span> <a href="https://stalburg.arctar.us/Bunker">bunker</a>, <a href="https://stalburg.arctar.us/Servicetunnel">servicetunnel</a>',{offset: [0,-12],maxWidth:400,minWidth:400,className:'location',closeButton:false})
+	.bindPopup('<h2>SNW Bunker</h2><img width="200" height="200" src="res/locations/bunker.jpg">A secret underground bunker below Walter Tower. It was built sometime after World War II by a government organization called <a href="https://stalburg.net/S.N.W">S.N.W</a>, with the funding of <a href="https://stalburg.net/Jeff_Walter">Jeff Walter</a> and the support of high ranking officials for the purpose of constructing nuclear weapons.<br><span class="location-section">Maps:</span> <a href="https://stalburg.net/Bunker">bunker</a>, <a href="https://stalburg.net/Servicetunnel">servicetunnel</a>',{offset: [0,-12],maxWidth:400,minWidth:400,className:'location',closeButton:false})
 	.addTo(locations).on('click',function(){setHash("snw_bunker")});
 
 	//new L.marker([-65.03969696272478,-73.52050781250001], { opacity: 0.9 })
@@ -564,16 +564,16 @@ function initObjects() {
 		[-65.219894,-76.772461],
 		[-66.160511,-75.124512]
 	])
-	.bindPopup('<h2>Turnip Hill</h2><img width="200" height="200" src="res/locations/turnip.jpg">Turnip Hill is an affordable housing project funded by <a href="https://stalburg.arctar.us/Walter_Corporation">Walter Co.</a> that was later adopted into the district of Open Sewer.<br><span class="location-section">Maps:</span> <a href="https://stalburg.arctar.us/Rails">rails</a>, <a href="https://stalburg.arctar.us/Tenements">tenements</a>, <a href="https://stalburg.arctar.us/River">river</a>, <a href="https://stalburg.arctar.us/Ending_1">ending_1</a>',{offset: [0,-12],maxWidth:400,minWidth:400,className:'location',closeButton:false})
+	.bindPopup('<h2>Turnip Hill</h2><img width="200" height="200" src="res/locations/turnip.jpg">Turnip Hill is an affordable housing project funded by <a href="https://stalburg.net/Walter_Corporation">Walter Co.</a> that was later adopted into the district of Open Sewer.<br><span class="location-section">Maps:</span> <a href="https://stalburg.net/Rails">rails</a>, <a href="https://stalburg.net/Tenements">tenements</a>, <a href="https://stalburg.net/River">river</a>, <a href="https://stalburg.net/Ending_1">ending_1</a>',{offset: [0,-12],maxWidth:400,minWidth:400,className:'location',closeButton:false})
 	.addTo(locations).on('click',function(){setHash("turnip_hill")});
 
 	central_waterplant = new L.marker([-69.98677536988554,-22.181396484375], { opacity: 0.9 })
-	.bindPopup('<h2>Stalburg Central Waterplant</h2><img width="200" height="200" src="res/locations/wplant.jpg">The Stalburg Central Waterplant is a treatment plant responsible for processing water from nearby sources and purifying it to potable standards.<br><span class="location-section">Maps:</span> <a href="https://stalburg.arctar.us/Waterplant">waterplant</a>',{offset: [0,-12],maxWidth:400,minWidth:400,className:'location',closeButton:false})
+	.bindPopup('<h2>Stalburg Central Waterplant</h2><img width="200" height="200" src="res/locations/wplant.jpg">The Stalburg Central Waterplant is a treatment plant responsible for processing water from nearby sources and purifying it to potable standards.<br><span class="location-section">Maps:</span> <a href="https://stalburg.net/Waterplant">waterplant</a>',{offset: [0,-12],maxWidth:400,minWidth:400,className:'location',closeButton:false})
 	.addTo(locations).on('click',function(){setHash("central_waterplant")});
 
 	//new L.marker([-61.217379387631894,-7.613525390625001], { opacity: 0.9 })
 	pitheath_water = new L.circle([-61.026370308660525,-8.217773437500002],{radius: 50000})
-	.bindPopup('<h2>Pitheath Water Treatment Plant</h2><img width="200" height="200" src="res/locations/wtreat.jpg">The Pitheath Water Treatment Plant is part of Stalburg Water, and responsible for purifying the water pumped out of the tunnels into clean water.<br><span class="location-section">Maps:</span> <a href="https://stalburg.arctar.us/Watertreatment">watertreatment</a>',{offset: [0,-12],maxWidth:400,minWidth:400,className:'location',closeButton:false})
+	.bindPopup('<h2>Pitheath Water Treatment Plant</h2><img width="200" height="200" src="res/locations/wtreat.jpg">The Pitheath Water Treatment Plant is part of Stalburg Water, and responsible for purifying the water pumped out of the tunnels into clean water.<br><span class="location-section">Maps:</span> <a href="https://stalburg.net/Watertreatment">watertreatment</a>',{offset: [0,-12],maxWidth:400,minWidth:400,className:'location',closeButton:false})
 	.addTo(locations).on('click',function(){setHash("pitheath_water")});
 
 	pitheath_canal = new L.polygon([
@@ -584,37 +584,37 @@ function initObjects() {
 	    [-62.67918619685372,-8.250732421875002],
 	    [-62.25258166753233,-8.041992187500002]
 	])
-	.bindPopup('<h2>Pitheath Sludge Canal</h2><img width="200" height="200" src="res/locations/sewer.jpg">A canal system connected to the Pitheath Water Treatment Plant and a nearby sewer.<br><span class="location-section">Maps:</span> <a href="https://stalburg.arctar.us/Sewer">sewer</a>, <a href="https://stalburg.arctar.us/Sewer2">sewer2</a>, <a href="https://stalburg.arctar.us/Sewer3">sewer3</a>',{offset: [0,-12],maxWidth:400,minWidth:400,className:'location',closeButton:false})
+	.bindPopup('<h2>Pitheath Sludge Canal</h2><img width="200" height="200" src="res/locations/sewer.jpg">A canal system connected to the Pitheath Water Treatment Plant and a nearby sewer.<br><span class="location-section">Maps:</span> <a href="https://stalburg.net/Sewer">sewer</a>, <a href="https://stalburg.net/Sewer2">sewer2</a>, <a href="https://stalburg.net/Sewer3">sewer3</a>',{offset: [0,-12],maxWidth:400,minWidth:400,className:'location',closeButton:false})
 	.addTo(locations).on('click',function(){setHash("pitheath_canal")});
 
 	//new L.marker([-75.92287112560821,-45.340576171875], { opacity: 0.9 })
 	west_runoff_system = new L.circle([-75.92287112560821,-45.340576171875],{radius: 50000})
-	.bindPopup('<h2>West Stalburg Runoff System</h2><img width="200" height="200" src="res/locations/runoff.jpg">An extensive stormdrain system underneath West Stalburg and its interconnected maintenance tunnels.<br><span class="location-section">Maps:</span> <a href="https://stalburg.arctar.us/Stormdrain">stormdrain</a>, <a href="https://stalburg.arctar.us/Cistern">cistern</a>',{offset: [0,-12],maxWidth:400,minWidth:400,className:'location',closeButton:false})
+	.bindPopup('<h2>West Stalburg Runoff System</h2><img width="200" height="200" src="res/locations/runoff.jpg">An extensive stormdrain system underneath West Stalburg and its interconnected maintenance tunnels.<br><span class="location-section">Maps:</span> <a href="https://stalburg.net/Stormdrain">stormdrain</a>, <a href="https://stalburg.net/Cistern">cistern</a>',{offset: [0,-12],maxWidth:400,minWidth:400,className:'location',closeButton:false})
 	.addTo(locations).on('click',function(){setHash("west_runoff_system")});
 
 	alcista_building = new L.marker([-77.24000346796788,-57.517075538635254], { opacity: 0.9 })
-	.bindPopup('<h2>Alcista Building</h2><img width="200" height="200" src="res/locations/alcista.jpg">The Alcista Building is a series of grouped mixed-use office buildings located in Downtown Stalburg. <a href="https://stalburg.arctar.us/National_Consulting_Group">The National Consulting Group</a> is headquartered in the \'A\' Building of the complex, which contains a large atrium, multiple conference rooms and private offices, a sauna, a restaurant, and an underground parking garage.<br><span class="location-section">Maps:</span> <a href="https://stalburg.arctar.us/Office">office</a>, <a href="https://stalburg.arctar.us/Officeblackout">officeblackout</a>',{offset: [0,-12],maxWidth:400,minWidth:400,className:'location',closeButton:false})
+	.bindPopup('<h2>Alcista Building</h2><img width="200" height="200" src="res/locations/alcista.jpg">The Alcista Building is a series of grouped mixed-use office buildings located in Downtown Stalburg. <a href="https://stalburg.net/National_Consulting_Group">The National Consulting Group</a> is headquartered in the \'A\' Building of the complex, which contains a large atrium, multiple conference rooms and private offices, a sauna, a restaurant, and an underground parking garage.<br><span class="location-section">Maps:</span> <a href="https://stalburg.net/Office">office</a>, <a href="https://stalburg.net/Officeblackout">officeblackout</a>',{offset: [0,-12],maxWidth:400,minWidth:400,className:'location',closeButton:false})
 	.addTo(locations).on('click',function(){setHash("alcista_building")});
 
 	//new L.marker([-77.06403564302136,-56.40380859375001], { opacity: 0.9 })
 	point_elias = new L.circle([-77.06403564302136,-56.40380859375001],{radius: 60000})
-	.bindPopup('<h2>Point Elias (Business District)</h2><img width="200" height="200" src="res/locations/elias.jpg">Point Elias, named the business district of Stalburg, is an appropriately filled area with a variety of shops, apartments, and parking garages.<br><span class="location-section">Maps:</span> <a href="https://stalburg.arctar.us/Business">business</a>, <a href="https://stalburg.arctar.us/Business2">business2</a>',{offset: [0,-12],maxWidth:400,minWidth:400,className:'location',closeButton:false})
+	.bindPopup('<h2>Point Elias (Business District)</h2><img width="200" height="200" src="res/locations/elias.jpg">Point Elias, named the business district of Stalburg, is an appropriately filled area with a variety of shops, apartments, and parking garages.<br><span class="location-section">Maps:</span> <a href="https://stalburg.net/Business">business</a>, <a href="https://stalburg.net/Business2">business2</a>',{offset: [0,-12],maxWidth:400,minWidth:400,className:'location',closeButton:false})
 	.addTo(locations).on('click',function(){setHash("point_elias")});
 
 	pinefell_water = new L.marker([0.5932511181408705,-13.447265625000002], { opacity: 0.9 })
-	.bindPopup('<h2>Pine Fell Water Plant</h2><img width="200" height="200" src="res/locations/pinefell.jpg">The Pine Fell Water Plant is responsible for pumping water from the tunnels below, pre-treating the water for further purification processes, transportation, and observation of the water contaminant levels.<br><span class="location-section">Maps:</span> <a href="https://stalburg.arctar.us/Tunnel2">tunnel2</a>',{offset: [0,-12],maxWidth:400,minWidth:400,className:'location',closeButton:false})
+	.bindPopup('<h2>Pine Fell Water Plant</h2><img width="200" height="200" src="res/locations/pinefell.jpg">The Pine Fell Water Plant is responsible for pumping water from the tunnels below, pre-treating the water for further purification processes, transportation, and observation of the water contaminant levels.<br><span class="location-section">Maps:</span> <a href="https://stalburg.net/Tunnel2">tunnel2</a>',{offset: [0,-12],maxWidth:400,minWidth:400,className:'location',closeButton:false})
 	.addTo(locations).on('click',function(){setHash("pinefell_water")});
 
 	hv_dam = new L.marker([6.839169626342808,-14.249267578125002], { opacity: 0.9 })
-	.bindPopup('<h2>Hammer Valley Dam </h2><img width="200" height="200" src="res/locations/hv.jpg">Hammer Valley Dam was built in 1962 by <a href="https://stalburg.arctar.us/Hammer_Valley_Hydro">Hammer Valley Hydro</a>, which was one of the key companies in providing power for Stalburg. Today the dam is in terrible condition, with extensive water damage causing leaks and flooding the generator room.<br><span class="location-section">Maps:</span> <a href="https://stalburg.arctar.us/Reserve1">reserve1</a>, <a href="https://stalburg.arctar.us/Reserve2">reserve2</a>',{offset: [0,-12],maxWidth:400,minWidth:400,className:'location',closeButton:false})
+	.bindPopup('<h2>Hammer Valley Dam </h2><img width="200" height="200" src="res/locations/hv.jpg">Hammer Valley Dam was built in 1962 by <a href="https://stalburg.net/Hammer_Valley_Hydro">Hammer Valley Hydro</a>, which was one of the key companies in providing power for Stalburg. Today the dam is in terrible condition, with extensive water damage causing leaks and flooding the generator room.<br><span class="location-section">Maps:</span> <a href="https://stalburg.net/Reserve1">reserve1</a>, <a href="https://stalburg.net/Reserve2">reserve2</a>',{offset: [0,-12],maxWidth:400,minWidth:400,className:'location',closeButton:false})
 	.addTo(locations).on('click',function(){setHash("hv_dam")});
 
 	opensewer = new L.circle([-55.80128097118045,-53.67919921875001],{radius: 225000})
-	.bindPopup('<h2>Obenseuer (Open Sewer)</h2><img width="200" height="200" src="res/locations/open_sewer.png">Obenseuer, nicknamed <a href="https://stalburg.arctar.us/Open_Sewer">Open Sewer</a>, is the most infamous place in the Stalburg region, mostly known for its alcoholics, poor social status and bad city planning. Events of <a href="https://stalburg.arctar.us/Open_Sewer_(game)">Open Sewer (game)</a> are taking place here.<br>',{offset: [0,-12],maxWidth:400,minWidth:400,className:'location',closeButton:false})
+	.bindPopup('<h2>Obenseuer (Open Sewer)</h2><img width="200" height="200" src="res/locations/open_sewer.png">Obenseuer, nicknamed <a href="https://stalburg.net/Open_Sewer">Open Sewer</a>, is the most infamous place in the Stalburg region, mostly known for its alcoholics, poor social status and bad city planning. Events of <a href="https://stalburg.net/Open_Sewer_(game)">Open Sewer (game)</a> are taking place here.<br>',{offset: [0,-12],maxWidth:400,minWidth:400,className:'location',closeButton:false})
 	.addTo(locations).on('click',function(){setHash("opensewer")});
 
 	tg_dam = new L.marker([-39.859154792956694,-103.77685546875001], { opacity: 0.9 })
-	.bindPopup('<h2>Two Gorges Dam</h2><img width="200" height="200" src="res/locations/two_gorges.jpg">Another dam that was built by <a href="https://stalburg.arctar.us/Hammer_Valley_Hydro">Hammer Valley Hydro</a>. It has been abandoned for an unspecified time, and then fallen in disrepair due to extensive neglect.',{offset: [0,-12],maxWidth:400,minWidth:400,className:'location',closeButton:false})
+	.bindPopup('<h2>Two Gorges Dam</h2><img width="200" height="200" src="res/locations/two_gorges.jpg">Another dam that was built by <a href="https://stalburg.net/Hammer_Valley_Hydro">Hammer Valley Hydro</a>. It has been abandoned for an unspecified time, and then fallen in disrepair due to extensive neglect.',{offset: [0,-12],maxWidth:400,minWidth:400,className:'location',closeButton:false})
 	.addTo(locations).on('click',function(){setHash("tg_dam")});
 
 	mark_house = new L.polygon([
@@ -623,23 +623,23 @@ function initObjects() {
 		[-70.8194220058879,-67.92846679687501],
 		[-70.49924132120779,-67.78564453125001]
 	])
-	.bindPopup('<h2>Mark\'s house</h2><img width="200" height="200" src="res/locations/mark.jpg">The home of <a href="https://stalburg.arctar.us/Markku_Siltanen">Markku Siltanen</a>, main INFRA protagonist.<br><span class="location-section">Maps:</span> <a href="https://stalburg.arctar.us/Ending_2">ending_2</a>',{offset: [0,-12],maxWidth:400,minWidth:400,className:'location',closeButton:false})
+	.bindPopup('<h2>Mark\'s house</h2><img width="200" height="200" src="res/locations/mark.jpg">The home of <a href="https://stalburg.net/Markku_Siltanen">Markku Siltanen</a>, main INFRA protagonist.<br><span class="location-section">Maps:</span> <a href="https://stalburg.net/Ending_2">ending_2</a>',{offset: [0,-12],maxWidth:400,minWidth:400,className:'location',closeButton:false})
 	.addTo(locations).on('click',function(){setHash("mark_house")});
 
 	powerstation = new L.marker([-76.23655931588738,-49.09704208374024], { opacity: 0.9 })
-	.bindPopup('<h2>Powerstation</h2><img width="200" height="200" src="res/locations/powerstation.jpg">A local powerstation in West Stalburg.<br><span class="location-section">Maps:</span> <a href="https://stalburg.arctar.us/Powerstation">powerstation</a>',{offset: [0,-12],maxWidth:400,minWidth:400,className:'location',closeButton:false})
+	.bindPopup('<h2>Powerstation</h2><img width="200" height="200" src="res/locations/powerstation.jpg">A local powerstation in West Stalburg.<br><span class="location-section">Maps:</span> <a href="https://stalburg.net/Powerstation">powerstation</a>',{offset: [0,-12],maxWidth:400,minWidth:400,className:'location',closeButton:false})
 	.addTo(locations).on('click',function(){setHash("powerstation")});
 
 	osmo_brewery_os = new L.marker([-56.89100330278458,-51.767578125], { opacity: 0.9 })
-	.bindPopup('<h2>Osmo Olut Brewery</h2><img width="200" height="200" src="res/locations/brewery2.jpg"><a href="https://stalburg.arctar.us/Osmo_Olut">Osmo Olut</a> brewery in <a href="https://stalburg.arctar.us/Open_Sewer">Open Sewer</a>.',{offset: [0,-12],maxWidth:400,minWidth:400,className:'location',closeButton:false})
+	.bindPopup('<h2>Osmo Olut Brewery</h2><img width="200" height="200" src="res/locations/brewery2.jpg"><a href="https://stalburg.net/Osmo_Olut">Osmo Olut</a> brewery in <a href="https://stalburg.net/Open_Sewer">Open Sewer</a>.',{offset: [0,-12],maxWidth:400,minWidth:400,className:'location',closeButton:false})
 	.addTo(locations).on('click',function(){setHash("osmo_brewery_os")});
 
 	osmo_brewery_pitheath = new L.marker([-61.090168316050516,-6.756591796875001], { opacity: 0.9 })
-	.bindPopup('<h2>Osmo Olut Brewery</h2><img width="200" height="200" src="res/locations/brewery1.jpg"><a href="https://stalburg.arctar.us/Osmo_Olut">Osmo Olut</a> brewery in Pitheath.',{offset: [0,-12],maxWidth:400,minWidth:400,className:'location',closeButton:false})
+	.bindPopup('<h2>Osmo Olut Brewery</h2><img width="200" height="200" src="res/locations/brewery1.jpg"><a href="https://stalburg.net/Osmo_Olut">Osmo Olut</a> brewery in Pitheath.',{offset: [0,-12],maxWidth:400,minWidth:400,className:'location',closeButton:false})
 	.addTo(locations).on('click',function(){setHash("osmo_brewery_pitheath")});
 
 	whiprock_island = new L.marker([-76.4654918099891,71.27929687500001], { opacity: 0.9 })
-	.bindPopup('<h2>Whiprock Island</h2><img width="200" height="200" src="res/locations/whiprock.jpg">Island of Whiprock with an abandoned seafortress and high security prison. Events of <a href="https://stalburg.arctar.us/Whiprock_DLC">Whiprock DLC</a> are taking place here.',{offset: [0,-12],maxWidth:400,minWidth:400,className:'location',closeButton:false})
+	.bindPopup('<h2>Whiprock Island</h2><img width="200" height="200" src="res/locations/whiprock.jpg">Island of Whiprock with an abandoned seafortress and high security prison. Events of <a href="https://stalburg.net/Whiprock_DLC">Whiprock DLC</a> are taking place here.',{offset: [0,-12],maxWidth:400,minWidth:400,className:'location',closeButton:false})
 	.addTo(locations).on('click',function(){setHash("whiprock_island")});
 
 	// location aliases (nobody needs too much ram anyway)
