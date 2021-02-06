@@ -37,7 +37,7 @@ docReady(function() { // for great js COMPATIBILITY (see docready.js, this shit 
 		noWrap: true
 	});
 
-	var stalburg_sat = L.tileLayer('tiles/sat-{MAPDEV}/{z}/{x}/{y}.png', {
+	var stalburg_sat = L.tileLayer('tiles/sat-{MAPDEV}/{z}/{x}/{y}.jpg', {
 		maxZoom: 7,
 		minZoom: 3,
 		tms: true,

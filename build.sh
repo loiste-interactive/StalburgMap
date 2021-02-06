@@ -21,7 +21,7 @@ checkDep() {
     done
 }
 
-checkDep sed parallel gdal2tiles.py identify
+checkDep sed parallel gdal2tiles.py identify find mogrify
 
 shopt -s expand_aliases
 command -v gsed >/dev/null 2>&1 && alias sed=gsed
@@ -58,6 +58,11 @@ echo 'gdal2tiles.py -p raster -w none base.png base
       gdal2tiles.py -p raster -w none pt.png pt
       gdal2tiles.py -p raster -w none infra.png infra
       gdal2tiles.py -p raster -w none sat.jpg sat' | parallel --bar --halt now,fail=1 :::: || die "tiles generation failed"
+
+cd sat
+find . -iname '*.png' -exec mogrify -format jpg -quality 80 {} +
+find . -iname '*.png' -delete
+cd ..
 
 if [ "$1" == "dev" ]; then
 	mkdir ../src/root/tiles
