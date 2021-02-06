@@ -37,6 +37,15 @@ docReady(function() { // for great js COMPATIBILITY (see docready.js, this shit 
 		noWrap: true
 	});
 
+	var stalburg_sat = L.tileLayer('tiles/sat-{MAPDEV}/{z}/{x}/{y}.png', {
+		maxZoom: 7,
+		minZoom: 3,
+		tms: true,
+		continuousWorld: true,
+		noWrap: true,
+		attribution: 'Map data &copy; Google'
+	});
+
 	var stalburg_dev = L.tileLayer('tiles/dev-{MAPDEV}/{z}/{x}/{y}.png', {
 		maxZoom: 7,
 		minZoom: 3,
@@ -85,7 +94,8 @@ docReady(function() { // for great js COMPATIBILITY (see docready.js, this shit 
 	map.addLayer(locations);
 
 	var baseLayers = {
-	    'Stalburg': stalburg_base
+	    'Map': stalburg_base,
+	    'Satellite': stalburg_sat
 	};
 
 	var overlayMaps = {
