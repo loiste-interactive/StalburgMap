@@ -7,6 +7,7 @@ command -v gsed >/dev/null 2>&1 && alias sed=gsed
 
 commit=$(git rev-parse --short HEAD)
 
+rm -rf dist/res/
 cp -rf src/root/res/ dist/res/
 cp -f src/root/index.html src/root/favicon.ico dist/
 
