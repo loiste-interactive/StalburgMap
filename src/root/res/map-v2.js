@@ -94,14 +94,14 @@ docReady(function() { // for great js COMPATIBILITY (see docready.js, this shit 
 	map.addLayer(locations);
 
 	var baseLayers = {
-	    'Map': stalburg_base,
-	    'Satellite': stalburg_sat
+	    '<span class="fas fa-map"></span> Map': stalburg_base,
+	    '<span class="fas fa-globe"></span> Satellite': stalburg_sat
 	};
 
 	var overlayMaps = {
 		'<span class="fas fa-map-marker-alt"></span> Locations': locations,
 		'<span class="fas fa-subway"></span> Public Transport': pt,
-	    '<span class="fas fa-map"></span> INFRA levels': stalburg_infra,
+	    '<span class="fas fa-dice-d6"></span> INFRA levels': stalburg_infra,
 	    '<span class="fas fa-child"></span> Mark\'s Route': mark_route,
 	    '<span class="fas fa-comment"></span> Dev Commentary': stalburg_dev
 	};
