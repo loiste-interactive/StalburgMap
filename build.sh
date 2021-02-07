@@ -59,10 +59,8 @@ echo 'gdal2tiles.py -p raster -w none base.png base
       gdal2tiles.py -p raster -w none infra.png infra
       gdal2tiles.py -p raster -w none sat.jpg sat' | parallel --bar --halt now,fail=1 :::: || die "tiles generation failed"
 
-cd sat
-find . -iname '*.png' -exec mogrify -format jpg -quality 80 {} +
-find . -iname '*.png' -delete
-cd ..
+find sat -iname '*.png' -exec mogrify -format jpg -quality 80 {} +
+find sat -iname '*.png' -delete
 
 if [ "$1" == "dev" ]; then
 	mkdir ../src/root/tiles
