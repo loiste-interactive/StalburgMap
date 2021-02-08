@@ -211,4 +211,13 @@ docReady(function() { // for great js COMPATIBILITY (see docready.js, this shit 
 		}
 	});
 
+	// changing max zoom level based on selected base layer
+	map.on('baselayerchange',function(e){
+		if (map.hasLayer(stalburg_base)) {
+			map.setMaxZoom(7);
+		} else {
+			map.setMaxZoom(5);
+		}
+	});
+
 });
