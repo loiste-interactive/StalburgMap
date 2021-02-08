@@ -12,6 +12,10 @@ div#map {
 	height: 100%;
 }
 
+.dummy-icon {
+	display: none;
+}
+
 .metro-label {
 	font-size:10px;
 	color:#FFFFFF;

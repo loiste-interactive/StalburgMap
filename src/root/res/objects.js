@@ -1,462 +1,207 @@
 function initObjects() {
 
+	const METRO = 0;
+	const RAIL = 1;
+	const METRORAIL = 2;
+	const CUSTOM = 3;
+
+	var dummyIcon = L.icon({
+		iconUrl: L.Icon.Default.prototype.options.iconUrl,
+    	popupAnchor: L.Icon.Default.prototype.options.popupAnchor,
+    	tooltipAnchor: L.Icon.Default.prototype.options.tooltipAnchor,
+		className: 'dummy-icon'
+	});
+
+	function addStation(station) {
+		var type = station[0];
+		var name = station[1];
+		var location = station[2];
+		var lines = ((station.length > 3) ? station[3] : '');
+		var stationClass,stationHTML;
+
+		switch(type) {
+			case RAIL:
+				stationClass = 'rail-label';
+				stationHTML = '<span class="fas fa-train"></span> ';
+				break;
+			case METRO:
+				stationClass = 'metro-label metro-label-' + lines;
+				stationHTML = '<span class="fas fa-subway"></span> ';
+				break;
+			case METRORAIL:
+				stationClass = 'metro-label metro-label-' + lines;
+				stationHTML = '<span class="fas fa-subway"></span> <span class="fas fa-train"></span> ';
+		}
+		stationHTML += name;
+
+		if (type == CUSTOM) {
+			stationHTML = name;
+			stationClass = lines;
+		}
+
+		//console.log(stationHTML);
+		//console.log(stationClass);
+
+		new L.marker(location,{icon: dummyIcon}).bindTooltip(
+			stationHTML,
+			{
+				permanent: true,
+				className: stationClass,
+				offset: [0, 22],
+				direction: 'top',
+				opacity: 0.9
+			}
+		).addTo(pt);
+	}
+
+	// Central is special!
+	addStation([
+		CUSTOM,
+		'<span class="fas fa-subway"></span> Stalburg Central<br><span class="fas fa-train"></span> Railway Station',
+		[-73.13451013251789,-29.410400390625004],
+		'metro-label metro-label-m1-m3-m4-rail'
+	]);
+
 	// M1
-	new L.marker([-73.13451013251789,-29.410400390625004], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> Stalburg Central<br><span class="fas fa-train"></span>  Railway Station', {permanent: true, className: 'metro-label metro-label-m1-m3-m4-rail', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-72.46865875387394,-26.16943359375], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> Tarcourt st', {permanent: true, className: 'metro-label metro-label-m1-m3', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-71.61867863505972,-23.950195312500004], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> Melton', {permanent: true, className: 'metro-label metro-label-m1-m3', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-71.34652769867394,-17.325439453125004], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> Sanatorium st', {permanent: true, className: 'metro-label metro-label-m1', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-71.18775391813159,-10.426025390625002], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> Well st', {permanent: true, className: 'metro-label metro-label-m1', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-70.53954317685508,-6.448974609375001], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> Annino', {permanent: true, className: 'metro-label metro-label-m1', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-70.46988050939915,-0.18676757812500003], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> Reelepark', {permanent: true, className: 'metro-label metro-label-m1', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-71.76019138754776,4.899902343750001], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> Blue Square', {permanent: true, className: 'metro-label metro-label-m1-m2', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-73.22986989876283,-35.37597656250001], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> Walter Square', {permanent: true, className: 'metro-label metro-label-m1-m3', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-73.37821477939461,-42.38525390625001], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> Keeman st', {permanent: true, className: 'metro-label metro-label-m1-m3', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-74.6658280745267,-46.96655273437501], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> Grassbay', {permanent: true, className: 'metro-label metro-label-m1', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-76.25303902539859,-19.522705078125004], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> Pinehill', {permanent: true, className: 'metro-label metro-label-m1-m2-m4', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-76.31295735284931,-15.358886718750002], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> Altrig Square', {permanent: true, className: 'metro-label metro-label-m1-m2-m4', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-76.50400504803798,-11.876220703125002], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> KDSM', {permanent: true, className: 'metro-label metro-label-m1-m2-m4', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-75.08149740920518,-7.492675781250001], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> Wheelers Park', {permanent: true, className: 'metro-label metro-label-m1-m2', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-74.01349291618119,-0.5603027343750001], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> Firplas', {permanent: true, className: 'metro-label metro-label-m1-m2', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-73.11856573110694,4.075927734375001], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> Steppeby st', {permanent: true, className: 'metro-label metro-label-m1-m2', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-76.92309950187345,-23.763427734375004], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> Point Phillips', {permanent: true, className: 'metro-label metro-label-m1-m2', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-77.33180918521349,-37.32055664062501], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> Southport', {permanent: true, className: 'metro-label metro-label-m1-m2', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-77.07386964923352,-42.45117187500001], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> Hansa Coast', {permanent: true, className: 'metro-label metro-label-m1-m2', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-76.6087265897133,-47.4169921875], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> Foundry', {permanent: true, className: 'metro-label metro-label-m1-m2', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
+	[
+		[METRO,'Tarcourt st',   [-72.46865875387394,-26.16943359375],     'm1-m3'],
+		[METRO,'Melton',        [-71.61867863505972,-23.950195312500004], 'm1-m3'],
+		[METRO,'Sanatorium st', [-71.34652769867394,-17.325439453125004], 'm1'],
+		[METRO,'Well st',       [-71.18775391813159,-10.426025390625002], 'm1'],
+		[METRO,'Annino',        [-70.53954317685508,-6.448974609375001],  'm1'],
+		[METRO,'Reelepark',     [-70.46988050939915,-0.18676757812500003],'m1'],
+		[METRO,'Blue Square',   [-71.76019138754776,4.899902343750001],   'm1-m2'],
+		[METRO,'Walter Square', [-73.22986989876283,-35.37597656250001],  'm1-m3'],
+		[METRO,'Keeman st',     [-73.37821477939461,-42.38525390625001],  'm1-m3'],
+		[METRO,'Grassbay',      [-74.6658280745267,-46.96655273437501],   'm1'],
+		[METRO,'Pinehill',      [-76.25303902539859,-19.522705078125004], 'm1-m2-m4'],
+		[METRO,'Altrig Square', [-76.31295735284931,-15.358886718750002], 'm1-m2-m4'],
+		[METRO,'KDSM',          [-76.50400504803798,-11.876220703125002], 'm1-m2-m4'],
+		[METRO,'Wheelers Park', [-75.08149740920518,-7.492675781250001],  'm1-m2'],
+		[METRO,'Firplas',       [-74.01349291618119,-0.5603027343750001], 'm1-m2'],
+		[METRO,'Steppeby st',   [-73.11856573110694,4.075927734375001],   'm1-m2'],
+		[METRO,'Point Phillips',[-76.92309950187345,-23.763427734375004], 'm1-m2'],
+		[METRO,'Southport',     [-77.33180918521349,-37.32055664062501],  'm1-m2'],
+		[METRO,'Hansa Coast',   [-77.07386964923352,-42.45117187500001],  'm1-m2'],
+		[METRO,'Foundry',       [-76.6087265897133,-47.4169921875],       'm1-m2'],
+	].forEach(addStation);
 
 
 	// M2
-	new L.marker([-70.75434465121714,7.503662109375001], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> Bricklayer st', {permanent: true, className: 'metro-label metro-label-m2', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
+	[
+		[METRO,    'Bricklayer st',              [-70.75434465121714,7.503662109375001],  'm2'],
+		[METRO,    'Northine Bay',               [-69.79413569863111,10.9423828125],      'm2'],
+		[METRO,    'Hawser Park',                [-67.65938637009882,11.162109375],       'm2'],
+		[METRO,    'Point Elias',                [-76.8433172982344,-55.21728515625001],  'm2'],
+		[METRO,    'Birchbank',                  [-65.99121175911041,10.557861328125],    'm2'],
+		[METRO,    'Ingrainfell st',             [-64.30182213914463,13.370361328125002], 'm2'],
+		[METRORAIL,'Tarfell Railway Station',    [-62.39036943814271,16.688232421875004], 'm2-m3-rail'],
+		[METRO,    'Hellstet',                   [-58.297944045474146,23.499755859375004],'m2-m3'],
+		[METRORAIL,'Aeropol',                    [-54.83866361297512,19.599609375000004], 'm2-m3-rail'],
+		[METRO,    'Kuhle',                      [-76.15610848043298,-66.37939453125001], 'm2-m3'],
+		[METRO,    'Altsee av',                  [-75.93355587409609,-71.33422851562501], 'm2'],
+		[METRO,    'Greychurch',                 [-75.97088995217737,-77.33276367187501], 'm2'],
+		[METRO,    'Bourgwill',                  [-75.06734898853097,-83.638916015625],   'm2'],
+		[METRO,    'Fishermen Bay',              [-73.60919783165052,-86.15478515625001], 'm2'],
+		[METRO,    'Codstrand',                  [-72.16498692869787,-87.967529296875],   'm2'],
+		[METRO,    'Saal',                       [-69.88123144131653,-100.70068359375001],'m2'],
+		[METRORAIL,'Lapkern',                    [-67.70110969585656,-109.17114257812501],'m2-rail'],
+		[METRORAIL,'Fisch River Railway Station',[-63.77763207252134,-120.78369140625001],'m2-rail'],
+		[METRO,    'Westport',                   [-77.50174185173175,-58.83178710937501], 'm2'],
+	].forEach(addStation);
 
-	new L.marker([-69.79413569863111,10.9423828125], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> Northine Bay', {permanent: true, className: 'metro-label metro-label-m2', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-67.65938637009882,11.162109375], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> Hawser Park', {permanent: true, className: 'metro-label metro-label-m2', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-76.8433172982344,-55.21728515625001], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> Point Elias', {permanent: true, className: 'metro-label metro-label-m2', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-65.99121175911041,10.557861328125], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> Birchbank', {permanent: true, className: 'metro-label metro-label-m2', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-64.30182213914463,13.370361328125002], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> Ingrainfell st', {permanent: true, className: 'metro-label metro-label-m2', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-62.39036943814271,16.688232421875004], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> <span class="fas fa-train"></span> Tarfell Railway Station', {permanent: true, className: 'metro-label metro-label-m2-m3-rail', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-58.297944045474146,23.499755859375004], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> Hellstet', {permanent: true, className: 'metro-label metro-label-m2-m3', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-54.83866361297512,19.599609375000004], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> <span class="fas fa-train"></span> Aeropol', {permanent: true, className: 'metro-label metro-label-m2-m3-rail', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-51.5429188223739,18.369140625000004], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> <span class="fas fa-plane"></span> Stalburg International Airport', {permanent: true, className: 'metro-label metro-label-m2-m3', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-76.15610848043298,-66.37939453125001], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> Kuhle', {permanent: true, className: 'metro-label metro-label-m2-m3', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-75.93355587409609,-71.33422851562501], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> Altsee av', {permanent: true, className: 'metro-label metro-label-m2', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-75.97088995217737,-77.33276367187501], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> Greychurch', {permanent: true, className: 'metro-label metro-label-m2', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-75.06734898853097,-83.638916015625], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> Bourgwill', {permanent: true, className: 'metro-label metro-label-m2', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-73.60919783165052,-86.15478515625001], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> Fishermen Bay', {permanent: true, className: 'metro-label metro-label-m2', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-72.16498692869787,-87.967529296875], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> Codstrand', {permanent: true, className: 'metro-label metro-label-m2', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-69.88123144131653,-100.70068359375001], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> Saal', {permanent: true, className: 'metro-label metro-label-m2', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-67.70110969585656,-109.17114257812501], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> <span class="fas fa-train"></span> Lapkern', {permanent: true, className: 'metro-label metro-label-m2-rail', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-63.77763207252134,-120.78369140625001], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> <span class="fas fa-train"></span> Fisch River Railway Station', {permanent: true, className: 'metro-label metro-label-m2-rail', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-77.50174185173175,-58.83178710937501], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> Westport', {permanent: true, className: 'metro-label metro-label-m2', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
+	addStation([
+		CUSTOM,
+		'<span class="fas fa-subway"></span> <span class="fas fa-plane"></span> Stalburg International Airport',
+		[-51.5429188223739,18.369140625000004],
+		'metro-label metro-label-m2-m3'
+	]);
 
 
 	// M3
-	new L.marker([-69.25614923150721,-24.290771484375004], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> Elm st', {permanent: true, className: 'metro-label metro-label-m3', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-67.31021400255845,-20.061035156250004], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> Cupper Park', {permanent: true, className: 'metro-label metro-label-m3', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-66.10716955858042,-14.337158203125002], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> Stenhill', {permanent: true, className: 'metro-label metro-label-m3', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-73.92855278552233,-53.64624023437501], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> Oldtown', {permanent: true, className: 'metro-label metro-label-m3', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-62.990169510232555,-6.218261718750001], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> Pitheath', {permanent: true, className: 'metro-label metro-label-m3', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-62.57310578449978,0.7910156250000001], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> <span class="fas fa-train"></span> Fallow st', {permanent: true, className: 'metro-label metro-label-m3-rail', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt)
-	.addTo(pt);
-
-	new L.marker([-62.67918619685372,8.195800781250002], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> <span class="fas fa-train"></span> Jasny', {permanent: true, className: 'metro-label metro-label-m3-rail', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-77.09106148040966,-72.67456054687501], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> Fingerpori', {permanent: true, className: 'metro-label metro-label-m3', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-77.37270310357201,-81.65039062500001], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> Lowend st', {permanent: true, className: 'metro-label metro-label-m3', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-77.38470599304453,-88.83544921875], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> Oderan', {permanent: true, className: 'metro-label metro-label-m3', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-76.65698519951452,-93.42773437500001], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> Ampstrand', {permanent: true, className: 'metro-label metro-label-m3', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-74.65420251332529,-59.21630859375001], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> Cernmont', {permanent: true, className: 'metro-label metro-label-m3', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
+	[
+		[METRO,    'Elm st',     [-69.25614923150721,-24.290771484375004],'m3'],
+		[METRO,    'Cupper Park',[-67.31021400255845,-20.061035156250004],'m3'],
+		[METRO,    'Stenhill',   [-66.10716955858042,-14.337158203125002],'m3'],
+		[METRO,    'Oldtown',    [-73.92855278552233,-53.64624023437501], 'm3'],
+		[METRO,    'Pitheath',   [-62.990169510232555,-6.218261718750001],'m3'],
+		[METRORAIL,'Fallow st',  [-62.57310578449978,0.7910156250000001], 'm3-rail'],
+		[METRORAIL,'Jasny',      [-62.67918619685372,8.195800781250002],  'm3-rail'],
+		[METRO,    'Fingerpori', [-77.09106148040966,-72.67456054687501], 'm3'],
+		[METRO,    'Lowend st',  [-77.37270310357201,-81.65039062500001], 'm3'],
+		[METRO,    'Oderan',     [-77.38470599304453,-88.83544921875],    'm3'],
+		[METRO,    'Ampstrand',  [-76.65698519951452,-93.42773437500001], 'm3'],
+		[METRO,    'Cernmont',   [-74.65420251332529,-59.21630859375001], 'm3'],
+	].forEach(addStation);
 
 
 	// M4
-	new L.marker([-71.40617196718854,-32.36572265625001], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> Flatstrand', {permanent: true, className: 'metro-label metro-label-m4', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-70.69631981745805,-41.11083984375001], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> Osmo Hill', {permanent: true, className: 'metro-label metro-label-m4', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-74.08896275037885,-25.488281250000004], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> Echtfjord', {permanent: true, className: 'metro-label metro-label-m4', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-75.64498434288939,-23.345947265625004], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> Raven st', {permanent: true, className: 'metro-label metro-label-m4', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-68.03635253721224,-49.38354492187501], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> Frostrasen', {permanent: true, className: 'metro-label metro-label-m4', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-77.1106817655761,-8.009033203125002], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> Fish Market', {permanent: true, className: 'metro-label metro-label-m4', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-77.88803790848628,7.646484375000001], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> Hays Point', {permanent: true, className: 'metro-label metro-label-m4', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-77.47079605592884,21.467285156250004], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> <span class="fas fa-train"></span> Eastport N', {permanent: true, className: 'metro-label metro-label-m4-rail', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-77.518373805414,30.992431640625004], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> Deepstrand', {permanent: true, className: 'metro-label metro-label-m4', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-78.31608463390351,36.95800781250001], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> Helens Sound', {permanent: true, className: 'metro-label metro-label-m4', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-79.17133464081945,46.99951171875001], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> Whiprock', {permanent: true, className: 'metro-label metro-label-m4', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-65.54936668811528,-46.93359375000001], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> <span class="fas fa-train"></span> Brimbank', {permanent: true, className: 'metro-label metro-label-m4-rail', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-56.13942869386325,-56.79931640625001], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> <span class="fas fa-train"></span> Obenseuer', {permanent: true, className: 'metro-label metro-label-m4-rail', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-64.15374188935365,-49.71313476562501], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> Eisenfell', {permanent: true, className: 'metro-label metro-label-m4', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-62.81501879409271,-52.40478515625001], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> Dawnfell', {permanent: true, className: 'metro-label metro-label-m4', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-59.63443457494949,-53.887939453125], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-subway"></span> Uhlu', {permanent: true, className: 'metro-label metro-label-m4', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
+	[
+		[METRO,    'Flatstrand',  [-71.40617196718854,-32.36572265625001], 'm4'],
+		[METRO,    'Osmo Hill',   [-70.69631981745805,-41.11083984375001], 'm4'],
+		[METRO,    'Echtfjord',   [-74.08896275037885,-25.488281250000004],'m4'],
+		[METRO,    'Raven st',    [-75.64498434288939,-23.345947265625004],'m4'],
+		[METRO,    'Frostrasen',  [-68.03635253721224,-49.38354492187501], 'm4'],
+		[METRO,    'Fish Market', [-77.1106817655761,-8.009033203125002],  'm4'],
+		[METRO,    'Hays Point',  [-77.88803790848628,7.646484375000001],  'm4'],
+		[METRORAIL,'Eastport N',  [-77.47079605592884,21.467285156250004], 'm4-rail'],
+		[METRO,    'Deepstrand',  [-77.518373805414,30.992431640625004],   'm4'],
+		[METRO,    'Helens Sound',[-78.31608463390351,36.95800781250001],  'm4'],
+		[METRO,    'Whiprock',    [-79.17133464081945,46.99951171875001],  'm4'],
+		[METRORAIL,'Brimbank',    [-65.54936668811528,-46.93359375000001], 'm4-rail'],
+		[METRORAIL,'Obenseuer',   [-56.13942869386325,-56.79931640625001], 'm4-rail'],
+		[METRO,    'Eisenfell',   [-64.15374188935365,-49.71313476562501], 'm4'],
+		[METRO,    'Dawnfell',    [-62.81501879409271,-52.40478515625001], 'm4'],
+		[METRO,    'Uhlu',        [-59.63443457494949,-53.887939453125],   'm4'],
+	].forEach(addStation);
 
 
 	// Rail
-	new L.marker([-67.94577559132281,-37.48535156250001], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-train"></span> Business Center', {permanent: true, className: 'rail-label', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-65.48562608106523,-35.32104492187501], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-train"></span> Hullee st', {permanent: true, className: 'rail-label', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-63.57789956676574,-31.124267578125004], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-train"></span> Divider', {permanent: true, className: 'rail-label', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-61.75233128411637,-16.226806640625004], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-train"></span> Vermont', {permanent: true, className: 'rail-label', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-65.78025122941293,15.809326171875002], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-train"></span> Pincome', {permanent: true, className: 'rail-label', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-70.07307475707385,22.137451171875004], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-train"></span> Eastend', {permanent: true, className: 'rail-label', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-74.0799247270789,21.104736328125], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-train"></span> Raft Isle', {permanent: true, className: 'rail-label', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-79.40816521262417,21.5771484375], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-train"></span> Eastport S', {permanent: true, className: 'rail-label', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-60.09771842541546,-31.783447265625004], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-train"></span> Koppeforst', {permanent: true, className: 'rail-label', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-56.77078840398195,-31.629638671875004], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-train"></span> Orefell', {permanent: true, className: 'rail-label', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-52.70967533219884,-32.96997070312501], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-train"></span> Kajamo', {permanent: true, className: 'rail-label', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-47.91634204016117,-33.25561523437501], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-train"></span> Bearhain', {permanent: true, className: 'rail-label', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-57.0586566066776,-41.41845703125001], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-train"></span> Tiefforst', {permanent: true, className: 'rail-label', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-65.93303449689425,-55.60180664062501], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-train"></span> Olympic Stadium', {permanent: true, className: 'rail-label', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-66.08936427047087,-64.41284179687501], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-train"></span> Turnip', {permanent: true, className: 'rail-label', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-69.04107185913101,-94.669189453125], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-train"></span> Rollenfell', {permanent: true, className: 'rail-label', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-49.001843917978526,25.323486328125004], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-train"></span> Verlass', {permanent: true, className: 'rail-label', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-38.24680876017447,34.83764648437501], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-train"></span> Strautsfell', {permanent: true, className: 'rail-label', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-18.999802829053262,47.08740234375001], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-train"></span> Tiltstrand', {permanent: true, className: 'rail-label', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-61.71070595883174,23.378906250000004], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-train"></span> Vastsstrand', {permanent: true, className: 'rail-label', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-61.59594603934757,30.421142578125004], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-train"></span> Gain', {permanent: true, className: 'rail-label', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-62.01637363111727,53.909912109375], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-train"></span> Strawberry Valley', {permanent: true, className: 'rail-label', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-57.96733074626976,63.39111328125001], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-train"></span> Segelfell', {permanent: true, className: 'rail-label', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-56.4564202416901,70.44433593750001], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-train"></span> Ploughwedge River<br>Railway Station', {permanent: true, className: 'rail-label', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-67.71777831266216,-127.57324218750001], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-train"></span> Eiferhay', {permanent: true, className: 'rail-label', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-67.97051353559428,-153.91845703125], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-train"></span> Slitberg', {permanent: true, className: 'rail-label', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-53.12699806177615,-129.71557617187503], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-train"></span> Raistas', {permanent: true, className: 'rail-label', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-33.21111647241684,-139.36157226562503], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-train"></span> Arasdale', {permanent: true, className: 'rail-label', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-25.720735134412106,-155.84106445312503], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-train"></span> Cellecter Railway Station', {permanent: true, className: 'rail-label', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-53.4357192066942,-68.71948242187501], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-train"></span> Vilksforst', {permanent: true, className: 'rail-label', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-48.34894812401374,-76.05834960937501], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-train"></span> Graph Gorge', {permanent: true, className: 'rail-label', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-39.892879900294794,-77.79418945312501], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-train"></span> Vispain', {permanent: true, className: 'rail-label', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-34.44315867450577,-84.49584960937501], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-train"></span> ASDF', {permanent: true, className: 'rail-label', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-31.746854162921395,-93.83422851562501], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-train"></span> Tenement', {permanent: true, className: 'rail-label', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-33.7243396617476,-123.28857421875001], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-train"></span> Baltasfell', {permanent: true, className: 'rail-label', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-37.22158045838649,-34.88159179687501], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-train"></span> Malmforst', {permanent: true, className: 'rail-label', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-28.16887518006333,-37.48535156250001], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-train"></span> Ardscratch Railway Station', {permanent: true, className: 'rail-label', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-14.92355439904404,-46.263427734375], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-train"></span> Broomfell', {permanent: true, className: 'rail-label', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([6.282538526926375,-71.01562500000001], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-train"></span> Stemlake Railway Station', {permanent: true, className: 'rail-label', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-35.02999636902567,-20.885009765625004], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-train"></span> Abrade', {permanent: true, className: 'rail-label', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-30.60009387355006,-7.536621093750001], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-train"></span> Klintisberg', {permanent: true, className: 'rail-label', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([-22.67484735118852,3.5595703125], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-train"></span> Ilanka', {permanent: true, className: 'rail-label', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
-
-	new L.marker([9.514079262770904,28.114013671875004], { opacity: 0.0 })
-	.bindTooltip('<span class="fas fa-train"></span> Illo', {permanent: true, className: 'rail-label', offset: [0, 22], direction: 'top',opacity: 0.9})
-	.addTo(pt);
+	[
+		[RAIL,'Business Center',                     [-67.94577559132281,-37.48535156250001]],
+		[RAIL,'Hullee st',                           [-65.48562608106523,-35.32104492187501]],
+		[RAIL,'Divider',                             [-63.57789956676574,-31.124267578125004]],
+		[RAIL,'Vermont',                             [-61.75233128411637,-16.226806640625004]],
+		[RAIL,'Pincome',                             [-65.78025122941293,15.809326171875002]],
+		[RAIL,'Eastend',                             [-70.07307475707385,22.137451171875004]],
+		[RAIL,'Raft Isle',                           [-74.0799247270789,21.104736328125]],
+		[RAIL,'Eastport S',                          [-79.40816521262417,21.5771484375]],
+		[RAIL,'Koppeforst',                          [-60.09771842541546,-31.783447265625004]],
+		[RAIL,'Orefell',                             [-56.77078840398195,-31.629638671875004]],
+		[RAIL,'Kajamo',                              [-52.70967533219884,-32.96997070312501]],
+		[RAIL,'Bearhain',                            [-47.91634204016117,-33.25561523437501]],
+		[RAIL,'Tiefforst',                           [-57.0586566066776,-41.41845703125001]],
+		[RAIL,'Olympic Stadium',                     [-65.93303449689425,-55.60180664062501]],
+		[RAIL,'Turnip',                              [-66.08936427047087,-64.41284179687501]],
+		[RAIL,'Rollenfell',                          [-69.04107185913101,-94.669189453125]],
+		[RAIL,'Verlass',                             [-49.001843917978526,25.323486328125004]],
+		[RAIL,'Strautsfell',                         [-38.24680876017447,34.83764648437501]],
+		[RAIL,'Tiltstrand',                          [-18.999802829053262,47.08740234375001]],
+		[RAIL,'Vastsstrand',                         [-61.71070595883174,23.378906250000004]],
+		[RAIL,'Gain',                                [-61.59594603934757,30.421142578125004]],
+		[RAIL,'Strawberry Valley',                   [-62.01637363111727,53.909912109375]],
+		[RAIL,'Segelfell',                           [-57.96733074626976,63.39111328125001]],
+		[RAIL,'Ploughwedge River<br>Railway Station',[-56.4564202416901,70.44433593750001]],
+		[RAIL,'Eiferhay',                            [-67.71777831266216,-127.57324218750001]],
+		[RAIL,'Slitberg',                            [-67.97051353559428,-153.91845703125]],
+		[RAIL,'Raistas',                             [-53.12699806177615,-129.71557617187503]],
+		[RAIL,'Arasdale',                            [-33.21111647241684,-139.36157226562503]],
+		[RAIL,'Cellecter Railway Station',           [-25.720735134412106,-155.84106445312503]],
+		[RAIL,'Vilksforst',                          [-53.4357192066942,-68.71948242187501]],
+		[RAIL,'Graph Gorge',                         [-48.34894812401374,-76.05834960937501]],
+		[RAIL,'Vispain',                             [-39.892879900294794,-77.79418945312501]],
+		[RAIL,'ASDF',                                [-34.44315867450577,-84.49584960937501]],
+		[RAIL,'Tenement',                            [-31.746854162921395,-93.83422851562501]],
+		[RAIL,'Baltasfell',                          [-33.7243396617476,-123.28857421875001]],
+		[RAIL,'Malmforst',                           [-37.22158045838649,-34.88159179687501]],
+		[RAIL,'Ardscratch Railway Station',          [-28.16887518006333,-37.48535156250001]],
+		[RAIL,'Broomfell',                           [-14.92355439904404,-46.263427734375]],
+		[RAIL,'Stemlake Railway Station',            [6.282538526926375,-71.01562500000001]],
+		[RAIL,'Abrade',                              [-35.02999636902567,-20.885009765625004]],
+		[RAIL,'Klintisberg',                         [-30.60009387355006,-7.536621093750001]],
+		[RAIL,'Ilanka',                              [-22.67484735118852,3.5595703125]],
+		[RAIL,'Illo',                                [9.514079262770904,28.114013671875004]],
+	].forEach(addStation);
 
 
 	// Locations
