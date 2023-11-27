@@ -81,6 +81,7 @@ docReady(function() { // for great js COMPATIBILITY (see docready.js, this shit 
 		maxBoundsViscosity: 1.0,
 		zoom: 3,
 		scrollWheelZoom: true,
+		tap: false,
 		layers: [stalburg_base]
 	}).setView([-73.13451013251789,-29.410400390625004],5);
 
