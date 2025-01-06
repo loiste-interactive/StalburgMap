@@ -68,7 +68,7 @@ docReady(function() { // for great js COMPATIBILITY (see docready.js, this shit 
 		tms: true,
 		continuousWorld: true,
 		noWrap: true,
-		attribution: 'INFRA levels by <a href="https://tonyfox.ws/">TonyRaccoon</a>'
+		attribution: 'INFRA levels by <a href="https://theraccoon.me/">TonyRaccoon</a>'
 	});
 
 	var southWest = new L.LatLng(-85.04923290826918,-179.96704101562503,true),
